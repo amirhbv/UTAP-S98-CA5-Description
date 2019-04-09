@@ -62,7 +62,7 @@
 		\centering
 		\begin{center}
 
-		\begin{tabular}{|| c | c|c ||}
+		\begin{tabular}{ccc}
             \hline
             \textbf{عنوان} & \textbf{کاراکتر معادل} & \textbf{تصویر}\\
             \hline
@@ -101,10 +101,14 @@
              \raisebox{-0.27cm}{\includegraphics[width=0.5cm]{koopa}} \\
             \hline
             لوله  & \lr{\texttt{|}} &
-             \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{pipe}} \\
+             \raisebox{-0.14cm}{\includegraphics[width=0.3cm]{pipe1}}
+             \raisebox{-0.14cm}{\includegraphics[width=0.3cm]{pipe2}} 
+             \raisebox{-0.14cm}{\includegraphics[width=0.3cm]{pipe3}}
+             \raisebox{-0.14cm}{\includegraphics[width=0.3cm]{pipe4}}   \\
             \hline
             پرچم & \lr{\texttt{f}} & 
-            \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{flag}} \\
+            \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{flag1}}
+            \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{flag2}}  \\
             \hline
 		\end{tabular}
 		\end{center}
@@ -123,6 +127,11 @@
 همچنین در نظر داشته باشید که عکس پس‌زمینه بازی هم باید حرکت کند. در واقع در هر لحظه باید بخشی از آن را نمایش دهید و با جابه‌جایی دوربین بخش بعدی عکس را به کاربر نمایش دهید تا حس حرکت در کاربر القا شود.
 	\subsection{حرکات}
 		\subsubsection{ماریو}
+			\begin{figure}[H]
+			\begin{center}
+				\includegraphics[width=0.7\textwidth]{marioWalk}
+			\end{center}
+		\end{figure}
 حرکات ماریو در این بازی بسیار ساده هستند. ماریو باید با فشار دادن کلید‌های \lr{\texttt{d}} و \lr{\texttt{a}} به ترتیب به سمت راست و چپ حرکت کند، وهم‌چنین با فشار دادن کلید \lr{\texttt{w}} بپرد. توجه کنید که ساختار جدول‌مانند نقشه، فقط به منظور راحتی ذخیره کردن و خواندن نقشه است و حرکت‌های داخل بازی ریزدانه‌تر از خانه‌های نقشه و در مقیاس پیکسل هستند. حرکت ماریو در راستای محور \lr{y}‌ها همواره از فرمول‌های حرکت با شتاب ثابت پیروی می‌کند، یعنی:
 	\begin{gather*}
 		\Delta y = v_y \Delta t\\
@@ -150,73 +159,160 @@ $y = -\frac{1}{2}gt^2 + v_{0_y} t + y_0$
 
 	\subsection{موانع}
 در این بازی سه مانع مختلف وجود دارد، که جلوی ورود ماریو را به خانه‌ای که داخل آن هستند می‌گیرند:
+
 	\begin{itemize}
+		\begin{minipage}{.75\textwidth}
 		\item
 \textbf{بلوک‌ها}
 ساده‌ترین موانع موجود در بازی. اندازه‌ی آن‌ها همیشه به اندازه‌ی یک خانه‌ از نقشه‌ی بازی است. بلوک‌ها خود دو نوع معمولی و زمینی دارند، که تفاوت آن‌ها فقط در ظاهرشان است. این تفاوت را می‌توانید در جدول بخش نقشه‌ی بازی مشاهده کنید.
+\end{minipage}
+\begin{minipage}{.15\textwidth}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=10cm]{allBlocks}
+		\includegraphics[width=1.8cm]{blocks}
 	\end{center}
 \end{figure}
+\end{minipage}
+
+\begin{minipage}{.75\textwidth}
 		\item
 		
 \textbf{لوله‌ها}
 این موانع کمی از بلوک‌ها پیچیده‌تر هستند. ارتفاع این موانع می‌تواند تا حد دلخواه زیاد باشد، ولی عرض آن‌ها همواره برابر دو خانه‌ از نقشه است. همچنین این موانع همواره عمودی هستند. شما باید از عکس‌های داده شده استفاده کنید، تا ظاهر لوله را مشابه لینک داده شده در ابندای پروژه بسازید.
+\end{minipage}
+\begin{minipage}{.15\textwidth}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=2cm]{allPipes}
+		\includegraphics[width=1.8cm]{allPipes}
 	\end{center}
 \end{figure}
+\end{minipage}
 		\item
 \textbf{آجرها}
 این موانع، بر خلاف دو مانع قبلی که روی زمین هستند، همواره از زمین فاصله دارند. وقتی ماریو از پایین به آجری ضربه می‌زند، آجر کمی به بالا پرتاب می‌شود و اگر دشمنی روی آن‌ باشد، آن را از بین می‌برد، سپس به موقعیت اول خود برمی‌گردد. آجرها ۲ نوع مختلف به شرح زیر دارند:
 		\begin{itemize}
+					\begin{minipage}{.75\textwidth}
 			\item
 \textbf{معمولی}
 این آجرها از آجر‌های شگفت‌انگیز ضعیف‌ترند. به این معنا که به هنگام ضربه زدن ماریو به آن‌ها از پایین، اگر ماریو بزرگ باشد، می‌شکنند. این آجر‌ها هیچ‌وقت محتوایی ندارند.
+\end{minipage}
+\begin{minipage}{.1\textwidth}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9cm]{brick}
+	\end{center}
+\end{figure}
+\end{minipage}
 			\item
+\begin{minipage}{.7\textwidth}
 \textbf{شگفت انگیز}
 این آجرها که با علامت سوال مشخص شده‌اند، محکم هستند و هیچ‌گاه نمی‌شکنند. اما وقتی ماریو از پایین به آن‌ها ضربه میزند، محتوای آن‌ها بیرون می‌آید. پس از بیرون آمدن محتوایشان،‌ این آجر‌ها تغییر شکل داده و علامت سوالشان از بین می‌رود.
+
+\end{minipage}
+\begin{minipage}{.15\textwidth}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1.8cm]{magicBricks}
+	\end{center}
+\end{figure}
+\end{minipage}
+
 		\end{itemize}
 	\end{itemize}
+
 
 	\subsection{دشمنان}
 در این بازی دو نوع دشمن وجود دارد، که قبل از اینکه به ویژگی‌های هر یک بپردازیم، ابتدا ویژگی‌های مشترک دشمنان را بررسی میکنیم.
 همه‌ی دشمنان، همانطور که در بخش حرکت توضیح داده شد، وقتی که وارد کادر بازی می‌شوند، به طور خودکار شروع به حرکت به سمت چپ می‌کنند.
 وقتی ماریو به یکی از دشمنان برخورد کند، اگر این برخورد از بالای سر دشمن باشد، آن دشمن آسیب می‌بیند، ولی ماریو آسیبی نمی‌بیند و در عوض فقط کمی به بالا پرتاب می‌شود (مهم است که این به بالا پرتاب شدن را پیاده سازی کنید). اما اگر این برخورد از جهتی دیگر باشد، ماریو یک جان خود را از دست داده و به ابتدای مرحله برمی‌گردد. دشمنان این بازی عبارتند از:
 	\begin{itemize}
+	
 		\item
-\textbf{گومبا کوچولو}\LTRfootnote{Little Gomba}
+
+\textbf{گومبا کوچولو}\LTRfootnote{Little Gomba} \\
+			\begin{minipage}{.75\textwidth}
 گومباها ساده‌ترین دشمنان در این بازی هستند. این دشمنان به محض برخورد با ماریو از بالای سرشان از بین می‌روند. البته قبل از اینکه کامل از بازی حذف شوند، برای چند ثانیه بدن مرده‌ی آن‌ها روی زمین باقی می‌ماند و پس از مدت کوتاهی دیگر اثری از آن‌ها در بازی باقی نمی‌ماند.
+\end{minipage}
+\begin{minipage}{.15\textwidth}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9cm]{goomba}
+	\end{center}
+\end{figure}
+\end{minipage}
+
+
 		\item
 \textbf{کوپا تروپا}\LTRfootnote{Koopa Troopa}
+\\
+			\begin{minipage}{.75\textwidth}
 این دشمنان کمی پیچیده‌ترند. وقتی ماریو از بالا به کوپا تروپا برخورد می‌کند کوپاتروپا به صورت برعکس روی زمین قرار می‌گیرد و دیگر حرکت نخواهد کرد. با برخورد بعدی ماریو با کوپا‌تروپا از سمت بالا، این موجود در جهت مناسب پرتاب می‌شود. در این حالت، کوپا تروپا با هر چیزی که برخورد کند، آن را بلافاصله می‌کشد (کوپاتروپاهای دیگر نیز بلافاصله می‌میرند و برعکس روی زمین نمی‌افتند) و مشابه تمامی حرکت‌های دیگر، وقتی تروپا در این حالت به مانعی برخورد بکند، جهت حرکتش عوض می‌شود. و این حالت تا جایی ادامه دارد که کوپا تروپا از یک جای خالی در نقشه بیرون بیافتد و از نقشه خارج شود.
+\end{minipage}
+\begin{minipage}{.15\textwidth}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9cm]{koopa}
+	\end{center}
+\end{figure}
+\end{minipage}
+
 	\end{itemize}
 
 	\subsection{محتوای آجرها}
 همانطور که در بخش موانع گفته شد، آجر‌های شگفت‌انگیز می‌توانند محتویاتی داشته باشند، که به هنگام ضربه زدن ماریو به آن‌ها، این محتوا از آن‌ها خارج می‌شود. این محتوا می‌تواند یکی از موارد زیر باشد:
 	\begin{itemize}
+			\begin{minipage}{.75\textwidth}
 		\item
+				
 \textbf{سکه}
+
 وقتی ماریو به آجر دارای سکه ضربه می‌زند، باید یک نشانه‌ی بصری برای اینکه سکه‌ای داخل آن آجر وجود داشت (مثلا اینکه یک سکه از آجر خارج شود) ظاهر شود و سپس یکی به تعداد سکه‌های ماریو اضافه شود.
+\end{minipage}
+\begin{minipage}{.15\textwidth}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9cm]{coin}
+	\end{center}
+\end{figure}
+\end{minipage}
+
+	\begin{minipage}{.75\textwidth}
 		\item
 \textbf{قارچ قرمز}
+
 این قارچ‌ها همانطور که از اسمشان پیداست، قارچ‌های قرمزی هستند که ماریو با خوردن آن‌ها تغییر اندازه می‌دهد. این تغییر اندازه باعث می‌شود که ماریو بتواند:
+
+\end{minipage}
+\begin{minipage}{.15\textwidth}
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=0.9cm]{red}
+		\end{center}
+	\end{figure}
+\end{minipage}
+
 		\begin{enumerate}
 			\item
 توانایی شکستن آجر‌ها را داشته باشد.
 			\item
 در برابر یک ضربه از دشمنان ایمن باشد و در صورت اصابت هرگونه ضربه تنها اندازه‌اش کوچک‌تر شود و از جان‌های او کم نشود. توجه کنید که بلافاصله پس از این برخورد، ماریو باید حدود یک ثانیه غیرقابل‌کشتن باشد. در طول این مدت ماریو و دشمنان هیچ تاثیری نمی‌توانند بر‌یکدیگر بگذارند.
 		\end{enumerate}
-
+	\begin{minipage}{.75\textwidth}
 		\item
 \textbf{قارچ جان}
 ماریو با خوردن این قارچ یک جان به جان‌هایش اضافه می‌شود.
- 
+\end{minipage}
+\begin{minipage}{.15\textwidth}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9cm]{health}
+	\end{center}
+\end{figure}
+\end{minipage}
 	\end{itemize}
 
 	\subsection{سربرگ‌ بازی}
+
 در طول بازی، باید اطلاعات مشخصی در بالای صفحه در قالب یک سربرگ\LTRfootnote{header} نمایش داده شوند. این اطلاعات به شرح زیرند:
 	\begin{itemize}
 		\item
@@ -225,6 +321,12 @@ $y = -\frac{1}{2}gt^2 + v_{0_y} t + y_0$
 		\item
 \textbf{جان‌ها}\LTRfootnote{lives}
 تعداد جان‌های باقی‌مانده‌ی ماریو. در ابتدا تعداد جان‌های ماریو  ۳ است.
+	\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=\textwidth]{header}
+	\end{center}
+\end{figure}
+
 	\end{itemize}
 
 	\subsection{پایان بازی}
