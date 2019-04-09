@@ -3,14 +3,15 @@
 \usepackage{amsmath}
 \usepackage{wrapfig}
 \usepackage{xepersian}
+\usepackage{lipsum}
 
 \graphicspath{{./img/}}
 
 \title{تمرین شماره‌ی ۵}
 \author{
 	\href{mailto:seyedahmadpourihosseini@gmail.com?subject=[AP\%20S98\%20A5]\%20}{احمد پوری‌حسینی},
-	\href{mailto:ahhabibvand@gmail.com?subject=[AP\%20S98\%20A5]\%20}{امیرحسین حبیب‌وند},
 	\href{mailto:farzadhabibii98@gmail.com?subject=[AP\%20S98\%20A5]\%20}{فرزاد حبیبی},
+	\href{mailto:ahhabibvand@gmail.com?subject=[AP\%20S98\%20A5]\%20}{امیرحسین حبیب‌وند},
 	\href{mailto:bardia.eghbali@gmail.com??subject=[AP\%20S98\%20A5]\%20}{بردیا اقبالی}
 }
 \course{برنامه‌سازی پیشرفته}
@@ -43,7 +44,12 @@
 توجه کنید که این بخش برای آشنایی بیشتر شما با RSDL است و نیازی به تحویل آن \textbf{نیست}.
 
 	\section{سوپرماریو}
-
+	
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=\textwidth]{cover.jpg}
+		\end{center}
+	\end{figure}
 {\hrulefill [~محل درج مقدمه‌ی سوپرماریو~] \hrulefill}
 
 برای مشاهده‌ی یک پیاده‌سازی کامل از بازی سوپرماریو می‌توانید به آدرس \url{https://supermariobros.io/}	مراجعه کنید.
@@ -54,34 +60,54 @@
 نقشه‌ی بازی به صورت یک جدول ۲بعدی از کاراکترها به شما داده می‌شود. هر کاراکتر نشان‌دهنده‌ی محتوای یک خانه \LTRfootnote{tile} از نقشه‌ی بازی است. جدول زیر معنی هر کاراکتر را مشخص می‌کند.
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{ccc}
+		\begin{center}
+
+		\begin{tabular}{|| c | c|c ||}
             \hline
             \textbf{عنوان} & \textbf{کاراکتر معادل} & \textbf{تصویر}\\
             \hline
             \hline
-            آجر‌ساده & \lr{\texttt{b}} & •\\
+            آجر‌ساده &
+             \lr{\texttt{b}} &
+             \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{brick}}  \\ 
             \hline
-            آجر شگفت انگیز دارای سکه & \lr{\texttt{?}} & •\\
+            
+            آجر شگفت انگیز دارای سکه &
+             \lr{\texttt{?}} &
+              \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{question}} 
+              
+              \\
+              
             \hline
-            آجر شگفت انگیز دارای قارچ & \lr{\texttt{m}} & •\\
+            آجر شگفت انگیز دارای قارچ & \lr{\texttt{m}} &
+              \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{question}} \\
             \hline
-            آجر شگفت انگیز دارای قارچ سلامتی & \lr{\texttt{h}} & •\\
+            آجر شگفت انگیز دارای قارچ سلامتی & \lr{\texttt{h}} & 
+             \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{question}}  \\
             \hline
-            بلوک معمولی & \lr{\texttt{@}} & •\\
+            بلوک معمولی & \lr{\texttt{@}} & 
+             \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{block}}  \\
             \hline
-            بلوک زمینی & \lr{\texttt{\#}} & •\\
+            بلوک زمینی & \lr{\texttt{\#}} 
+            &  \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{ground_block}}  \\
             \hline
-            ماریو & \lr{\texttt{M}} & •\\
+            ماریو & \lr{\texttt{M}} & 
+            \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{mario}}\\
             \hline
-            گومبا کوچولو & \lr{\texttt{l}} & •\\
+            گومبا کوچولو & \lr{\texttt{l}} &
+             \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{goomba}} \\
             \hline
-            کوپا تروپا & \lr{\texttt{k}} & •\\
+            کوپا تروپا & \lr{\texttt{k}} &
+             \raisebox{-0.27cm}{\includegraphics[width=0.5cm]{koopa}} \\
             \hline
-            لوله  & \lr{\texttt{|}} & •\\
+            لوله  & \lr{\texttt{|}} &
+             \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{pipe}} \\
             \hline
-            پرچم & \lr{\texttt{f}} & •\\
+            پرچم & \lr{\texttt{f}} & 
+            \raisebox{-0.24cm}{\includegraphics[width=0.5cm]{flag}} \\
             \hline
 		\end{tabular}
+		\end{center}
 	\end{table}
 عکس‌های مربوط را می‌توانید در پوشه‌ی \lr{\texttt{assets}} پیدا کنید. همچنین عکس پس‌زمینه‌ نیز داخل همین پوشه قرار دارد که باید پشت تمامی تصاویر دیگر رسم شود.
 
@@ -128,9 +154,20 @@ $y = -\frac{1}{2}gt^2 + v_{0_y} t + y_0$
 		\item
 \textbf{بلوک‌ها}
 ساده‌ترین موانع موجود در بازی. اندازه‌ی آن‌ها همیشه به اندازه‌ی یک خانه‌ از نقشه‌ی بازی است. بلوک‌ها خود دو نوع معمولی و زمینی دارند، که تفاوت آن‌ها فقط در ظاهرشان است. این تفاوت را می‌توانید در جدول بخش نقشه‌ی بازی مشاهده کنید.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=10cm]{allBlocks}
+	\end{center}
+\end{figure}
 		\item
+		
 \textbf{لوله‌ها}
 این موانع کمی از بلوک‌ها پیچیده‌تر هستند. ارتفاع این موانع می‌تواند تا حد دلخواه زیاد باشد، ولی عرض آن‌ها همواره برابر دو خانه‌ از نقشه است. همچنین این موانع همواره عمودی هستند. شما باید از عکس‌های داده شده استفاده کنید، تا ظاهر لوله را مشابه لینک داده شده در ابندای پروژه بسازید.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=2cm]{allPipes}
+	\end{center}
+\end{figure}
 		\item
 \textbf{آجرها}
 این موانع، بر خلاف دو مانع قبلی که روی زمین هستند، همواره از زمین فاصله دارند. وقتی ماریو از پایین به آجری ضربه می‌زند، آجر کمی به بالا پرتاب می‌شود و اگر دشمنی روی آن‌ باشد، آن را از بین می‌برد، سپس به موقعیت اول خود برمی‌گردد. آجرها ۲ نوع مختلف به شرح زیر دارند:
